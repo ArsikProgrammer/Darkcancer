@@ -1,10 +1,10 @@
-"""Permutation test for O/E enrichment of dark-region mutations.
+"""Background-resampling test for global O/E of dark-region mutations.
 
-Null: mutations fall on random coding positions with the tumor's own context
-spectrum. Within each tumor, for each SBS96 channel c, the number of dark hits
-is redrawn as Binomial(n_c, f_dark(c)) — i.e. positions are reshuffled among
-coding sites while mutation types are preserved. The empirical p-value compares
-the observed statistic to the permutation distribution.
+Parametric null (not a label-permutation test): mutations are redrawn onto
+random coding positions while mutation types are preserved; implemented as a
+binomial draw from the background dark fraction for each SBS96 channel.
+With --perms runs the smallest attainable p is 1/(perms+1); report such values
+as "< 1/perms", not as exact estimates.
 """
 from pathlib import Path
 import argparse
@@ -49,6 +49,8 @@ def main():
     p_hi = (1 + np.sum(null >= obs_oe)) / (args.perms + 1)
     p_lo = (1 + np.sum(null <= obs_oe)) / (args.perms + 1)
     print(f"Observed global O/E: {obs_oe:.4f}")
+    print(f"Note: at {args.perms} runs the minimum attainable p is "
+          f"{1 / (args.perms + 1):.1e}; such values are bounds, not estimates.")
     print(f"Null mean {null.mean():.4f} sd {null.std():.4f}")
     print(f"Empirical p (enrichment): {p_hi:.4g}, p (depletion): {p_lo:.4g}")
 

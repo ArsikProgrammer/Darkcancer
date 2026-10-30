@@ -108,7 +108,7 @@ def main():
     silent = mut_all[mut_all["Variant_Classification"] == "Silent"]
     run_model(silent, "SBS4_fraction", "CONTROL B (SBS4, Silent outcome)")
 
-    # permutation
+    # background-resampling test (parametric null)
     mut_p = mut_all[mut_all["is_dark"].notna()].copy()
     mut_p["p_dark_bg"] = mut_p["context_96"].map(bg_map)
     mut_p = mut_p[mut_p["p_dark_bg"].notna()]
@@ -123,8 +123,9 @@ def main():
     p_hi = (1 + int((null >= obs).sum())) / (args.perms + 1)
     p_lo = (1 + int((null <= obs).sum())) / (args.perms + 1)
     log()
-    log(f"PERMUTATION: observed global O/E = {obs:.4f}, null mean = {null.mean():.4f} "
-        f"sd = {null.std():.4f}; p(enrich) = {p_hi:.4g}, p(deplete) = {p_lo:.4g}")
+    log(f"BACKGROUND RESAMPLING (parametric null): observed global O/E = {obs:.4f}, null mean = {null.mean():.4f} "
+        f"sd = {null.std():.4f}; p(enrich) = {p_hi:.4g}, p(deplete) = {p_lo:.4g} "
+        f"(minimum at {args.perms} runs: {1 / (args.perms + 1):.1e}, read as bound)")
 
     # secondary 1: pack-years as independent smoking measure
     sm = pd.read_csv(args.smoking, sep="\t", comment="#", dtype=str)
