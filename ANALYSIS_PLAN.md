@@ -10,7 +10,7 @@
 файлах `results/` относятся к локальной истории разработки, которой нет в
 публичном репозитории.
 
-# Pre-registration: Analysis Plan (Dark Proteome × Tobacco Mutational Signature)
+# Original analysis plan text (working title: "Pre-registration")
 
 **Status:** *(historical heading; the rules below were fixed before the runs —
 see dated sections and the deviations log at 18.8/19.8; this document is not an
@@ -101,10 +101,11 @@ O ~ offset(log E) + β1 · SBS4_std + β2 · TMB_std + β3 · wes
 ## 7. Equivalence boundary (fixed before analysis)
 
 - **Minimum interesting effect:** O/E ratio = 1.2 per 1 SD SBS4.
-  *(Rationale note 2026-10-31: 1.2 was chosen a priori as the smallest effect
-  judged biologically interesting for a positional bias — not as a detection
-  limit; the realized design constrains effects to a few percent per SD on the
-  measured-predictor scale.)*
+  *(Rationale note 2026-10-31: the threshold itself was fixed in this plan
+  before the runs; this rationale was formulated afterwards. Honest wording:
+  1.2 is the threshold of biological interest chosen at the time; the earlier
+  "detection limit" explanation was wrong — the realized design constrains
+  effects to a few percent per SD on the measured-predictor scale.)*
 - **Equivalence interval:** (1/1.2, 1.2) = (0.833, 1.2).
 
 **Interpretation rules:**
@@ -173,6 +174,10 @@ This prevents calling every narrow CI "inconclusive" and every wide CI "null".
 ## 14. Commit
 
 - This file committed to git with date before any real analysis.
+  *(Note 2026-10-31: this held in the development history but NOT in the public
+  repository, where the plan was committed on 2026-10-31, after the runs;
+  the dated sections and the deviations log are the honest record of what was
+  fixed when.)*
 - Optionally uploaded to OSF/GitHub release for public timestamp.
 
 
