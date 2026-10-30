@@ -1,4 +1,4 @@
-"""Run the implemented part of the Dark Proteome pipeline."""
+"""Run the data pipeline: ingest -> context -> signatures (analysis steps below)."""
 from pathlib import Path
 import subprocess
 import sys
@@ -13,7 +13,6 @@ STEPS = [
     "04_filter_clcgp.py",
     "05_filter_jhu.py",
     "03_decompress_hg19.py",
-    "03_extract_primary.py",
     "09_parse_gencode.py",
 ]
 

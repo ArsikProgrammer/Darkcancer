@@ -1,6 +1,8 @@
 # Data and results
 data/
-results/
+results/*.log
+results/*.err
+results/*.csv
 *.tar
 *.tar.gz
 *.pkl
@@ -8,6 +10,7 @@ results/
 
 # IDE
 .idea/
+.commandcode/
 
 # Python
 __pycache__/

@@ -1,11 +1,6 @@
-pandas
-pyarrow
-numpy
-scipy
-statsmodels
-scikit-learn
-pyliftover
-biopython
-requests
-matplotlib
-seaborn
+pandas==2.3.3
+numpy==2.4.6
+scipy==1.17.1
+statsmodels==0.15.0
+requests==2.34.2
+pytest
