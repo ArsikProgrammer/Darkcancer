@@ -1,14 +1,20 @@
-# Analysis plan (fixed before the runs)
+# Analysis plan and deviations log (Dark Proteome x Tobacco Signature)
 
-Это план анализа, зафиксированный до основных запусков. Внешняя регистрация
-(OSF, AsPredicted и т.п.) не проводилась — это внутренняя фиксация с датами и
-датированными отклонениями ниже. Ссылки вида «section 18.3» из кода результатов
-ведут в этот документ. Хэши коммитов в файлах `results/` относятся к локальной
-истории разработки, которой нет в публичном репозитории.
+Документ собран 2026-10-31 как план и журнал отклонений. Основные правила,
+границы и критерии ниже были зафиксированы до основных запусков (на это
+указывают даты в разделах 7, 18 и 19), но документ в целом — рабочая запись, а
+не независимая предрегистрация: внешней регистрации (OSF, AsPredicted) не было,
+а разделы 18.8 и 19.8 фиксируют отклонения — включая случаи, когда результат
+видели до тега (баг репетиции) и до смены источника данных. Ссылки вида
+«section 18.3» из кода результатов ведут в этот документ. Хэши коммитов в
+файлах `results/` относятся к локальной истории разработки, которой нет в
+публичном репозитории.
 
 # Pre-registration: Analysis Plan (Dark Proteome × Tobacco Mutational Signature)
 
-**Status:** Fixed before viewing real results.  
+**Status:** *(historical heading; the rules below were fixed before the runs —
+see dated sections and the deviations log at 18.8/19.8; this document is not an
+externally registered pre-registration.)*  
 **Date:** 2026-10-25  
 **Project:** Dark proteome and mutational footprint of tobacco smoke
 
@@ -95,6 +101,10 @@ O ~ offset(log E) + β1 · SBS4_std + β2 · TMB_std + β3 · wes
 ## 7. Equivalence boundary (fixed before analysis)
 
 - **Minimum interesting effect:** O/E ratio = 1.2 per 1 SD SBS4.
+  *(Rationale note 2026-10-31: 1.2 was chosen a priori as the smallest effect
+  judged biologically interesting for a positional bias — not as a detection
+  limit; the realized design constrains effects to a few percent per SD on the
+  measured-predictor scale.)*
 - **Equivalence interval:** (1/1.2, 1.2) = (0.833, 1.2).
 
 **Interpretation rules:**
@@ -153,6 +163,9 @@ This prevents calling every narrow CI "inconclusive" and every wide CI "null".
 ## 13. Synthetic data policy
 
 - All synthetic/test files removed from analysis directory.
+  *(Note 2026-10-31: synthetic **data** files are not used in the analysis; the
+  generator/simulation scripts (make_synthetic_oe.py, sim_*.py) remain in the
+  repository as tools.)*
 - No synthetic data used in final results.
 
 ---
@@ -215,6 +228,10 @@ Simulated data, 500 runs per scenario, n = 143, overdispersion θ ∈ {0.15, 0.3
 1. Primary model (§6) on all 143 samples.
 2. Permutation test, 10000 permutations (positions reshuffled within tumor,
    mutation types preserved).
+   *(Terminology corrected 2026-10-31: implemented as a parametric
+   background-resampling test — binomial draws from the background per context,
+   see permutation_test.py — not a label permutation; p at the floor of
+   1/(perms+1) is a bound, not an estimate.)*
 3. Negative controls, same function and code path:
    a. SBS1 (age) as predictor instead of SBS4;
    b. synonymous (Silent) mutations as outcome instead of all coding.

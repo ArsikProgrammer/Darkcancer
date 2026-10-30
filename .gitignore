@@ -10,7 +10,6 @@ results/*.csv
 
 # IDE
 .idea/
-.commandcode/
 
 # Python
 __pycache__/
