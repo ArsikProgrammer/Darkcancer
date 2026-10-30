@@ -1,0 +1,11 @@
+pandas
+pyarrow
+numpy
+scipy
+statsmodels
+scikit-learn
+pyliftover
+biopython
+requests
+matplotlib
+seaborn

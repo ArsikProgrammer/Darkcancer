@@ -1,0 +1,19 @@
+# Data and results
+data/
+results/
+*.tar
+*.tar.gz
+*.pkl
+*.fasta
+
+# IDE
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,31 @@
+=== CONFIRMATORY RUN ===
+git commit: 45c7c251dcd06e15a1d88fd19525e8bfab9b03ba
+seed: 20261028, permutations: 10000
+
+-- input checksums (SHA-256) --
+de3395a35dc8aaf5f3eab1b660501e3bb520ff55c581017427b62bed9a079457  data\processed\annotated_george.csv
+ad8c63e301f0ba4d0745c61fba5d72116024ea1d78c841fe8bbaa02382171cb4  data\processed\annotated_jhu.csv
+9cd8c404dff27a8e4384c531076cf0197e5fcdc1f9cf135f074bfeaa6288c348  data\processed\annotated_clcgp.csv
+c0df97b8ffaff27ca5b20b18a3bb488a0ce3ede4d0856ffbbe2ac267768f567d  data\processed\background_pLDDT50.csv
+393cf51ec0231db36404de24a058ecdd119087d95c44cd5bcaf5accfc4e20e47  data\processed\tumor_signature_activities_refit_dedup.csv
+6f4ce8bf09ec79507325f0ee73f243a685e4ab4896f3d04eead9918e7919951a  data\processed\george_mapping.csv
+77aba48453d478787235b4e0ec7fa9ca6d33ea3fe08242452016cc437299aa93  data\processed\jhu_mapping.csv
+d4de579cc47c58cf20220b8e7b79daf1c6c38407ce67640f2d8ab7c2f6fd2230  data\processed\clcgp_mapping.csv
+
+PRIMARY (SBS4, all coding): n_samples=143, n_mutations=33887 (dropped unmapped context: 0)
+  [NB2 alpha->0 boundary: Poisson-t limit]
+  O/E ratio per 1 SD = 1.0084 (95% CI 0.9849..1.0326) -> INFORMATIVE NULL
+CONTROL A (SBS1 predictor, all coding): n_samples=143, n_mutations=33887 (dropped unmapped context: 0)
+  [NB2 alpha->0 boundary: Poisson-t limit]
+  O/E ratio per 1 SD = 0.9938 (95% CI 0.9725..1.0155) -> INFORMATIVE NULL
+CONTROL B (SBS4 predictor, Silent outcome): n_samples=113, n_mutations=7171 (dropped unmapped context: 0)
+  [NB2 alpha->0 boundary: Poisson-t limit]
+  O/E ratio per 1 SD = 1.0317 (95% CI 0.9825..1.0835) -> INFORMATIVE NULL
+
+PERMUTATION: observed global O/E = 0.9405, null mean = 1.0000 sd = 0.0083
+  empirical p (enrichment) = 1, p (depletion) = 9.999e-05
+
+SECONDARY (discard covariate): O/E per 1 SD = 1.0085 (95% CI 0.9849..1.0326) -> INFORMATIVE NULL  [NB2 alpha->0 boundary: Poisson-t limit]
+  (compare with PRIMARY; matching conclusions => discard bias not driving result)
+
+CONTROLS PASSED: primary result stands per pre-registration 18.3
