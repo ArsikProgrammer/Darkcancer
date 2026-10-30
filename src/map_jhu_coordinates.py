@@ -7,7 +7,7 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 CDS = ROOT / "data" / "processed" / "gencode_v19_cds.csv"
-REF_PKL = ROOT / "data" / "processed" / "_hg19_ref.pkl"
+REF_FASTA = ROOT / "data" / "raw" / "reference" / "hg19.fa"
 UNIPROT = ROOT / "data" / "processed" / "_uniprot_human_reviewed.fasta"
 MAPPING = ROOT / "data" / "processed" / "_uniprot_gene_accession.csv"
 
@@ -31,10 +31,12 @@ def translate(seq):
         aa.append(translate_codon(seq[i:i+3]))
     return "".join(aa)
 
-import pickle
+import functools
+
+@functools.lru_cache(maxsize=1)
 def get_ref():
-    with open(REF_PKL, "rb") as f:
-        return pickle.load(f)
+    from build_background import load_reference
+    return load_reference(REF_FASTA)
 
 def load_uniprot():
     seqs = {}

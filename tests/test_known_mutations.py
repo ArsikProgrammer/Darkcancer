@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 DATA_OK = (ROOT / "data" / "processed" / "gencode_v19_cds.csv").exists() and \
-    (ROOT / "data" / "processed" / "_hg19_ref.pkl").exists()
+    (ROOT / "data" / "raw" / "reference" / "hg19.fa").exists()
 pytestmark = pytest.mark.skipif(not DATA_OK, reason="requires local data files (see README)")
 
 import pandas as pd

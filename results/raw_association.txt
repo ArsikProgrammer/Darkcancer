@@ -1,0 +1,7 @@
+Raw (unadjusted) association: dark mutation share vs SBS4 fraction
+SCLC: n = 143 samples
+  Pearson  r = -0.119 (p = 0.157)
+  Spearman rho = -0.027 (p = 0.747)
+LUAD: n = 230 samples
+  Pearson  r = +0.077 (p = 0.246)
+  Spearman rho = +0.086 (p = 0.196)
