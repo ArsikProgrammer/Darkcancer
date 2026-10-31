@@ -228,7 +228,7 @@ def main():
     p(doc, (
         "After duplicate and cell-line removal the SCLC cohort comprised 143 "
         "primary tumours; the LUAD cohort comprised 230 primary tumours, 32 of "
-        "them from lifelong never-smokers. Residue validation retained 83-87% "
+        "them from lifelong never-smokers. Residue validation retained 79-87% "
         "of coding SNVs depending on cohort (Table 1), and 92-96% of validated "
         "mutations had pLDDT coverage. The smoking scale behaved as expected "
         "before any outcome analysis: the median SBS4 fraction was 0.000 in "
@@ -398,11 +398,20 @@ def main():
     doc.add_heading("Tables", level=1)
     table(doc,
           ["Cohort", "Samples", "Coding SNVs", "Validated (%)", "pLDDT coverage (%)"],
-          [["SCLC: George (WGS)", "107", "34,582", "29,936 (86.6)", "92.6"],
-           ["SCLC: JHU (WES)", "30", "5,190", "4,403 (84.9)", "96.0"],
-           ["SCLC: CLCGP (WES)", "6", "8,078", "6,680 (82.7)", "94.3"],
-           ["LUAD: TCGA (WES)", "230 (32 never)", "66,770", "52,914 (79.3)", "95.1"]],
-          "Table 1. Cohorts and quality control.")
+          [["SCLC: George (WGS)", "107", "34,583", "29,936 (86.6)", "92.6"],
+           ["SCLC: JHU (WES)", "30", "5,190", "4,403 (84.8)", "96.0"],
+           ["SCLC: CLCGP (WES)", "6", "2,494", "2,070 (83.0)", "94.3"],
+           ["LUAD: TCGA (WES)", "230 (32 never)", "66,770", "52,914 (79.2)", "95.1"]],
+          "Table 1. Cohorts and quality control. All counts are restricted to "
+          "the analysis set: 143 SCLC tumours after duplicate-sample and "
+          "cell-line removal, and 230 LUAD tumours (per-cohort figures are "
+          "post-filtering and sum to the analysis totals). Validated (%) is "
+          "the share of coding SNVs with confirmed residue mapping; pLDDT "
+          "coverage (%) is the share of validated mutations with a disorder "
+          "label. Mutations entering the primary models require pLDDT "
+          "coverage: SCLC 33,887 (143 tumours; equals 27,709 + 4,226 + 1,952 "
+          "across cohorts) and LUAD 50,339 (230 tumours). Silent-mutation "
+          "control: 7,171 (113 tumours) and 12,081 (230 tumours).")
     table(doc,
           ["Analysis", "O/E per 1 SD", "95% CI", "Interpretation"],
           [["SCLC primary (SBS4)", "1.008", "0.985-1.033", "informative null"],
