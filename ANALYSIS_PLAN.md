@@ -1,14 +1,6 @@
 # Analysis plan and deviations log (Dark Proteome x Tobacco Signature)
 
-Документ собран 2026-10-31 как план и журнал отклонений. Основные правила,
-границы и критерии ниже были зафиксированы до основных запусков (на это
-указывают даты в разделах 7, 18 и 19), но документ в целом — рабочая запись, а
-не независимая предрегистрация: внешней регистрации (OSF, AsPredicted) не было,
-а разделы 18.8 и 19.8 фиксируют отклонения — включая случаи, когда результат
-видели до тега (баг репетиции) и до смены источника данных. Ссылки вида
-«section 18.3» из кода результатов ведут в этот документ. Хэши коммитов в
-файлах `results/` относятся к локальной истории разработки, которой нет в
-публичном репозитории.
+This document was assembled on 2026-10-31 as an analysis plan and deviations log. The main rules, boundaries, and criteria below were fixed prior to the main runs (as indicated by the dates in sections 7, 18, and 19). However, the document as a whole is a working record, rather than an independent pre-registration: there was no external registration (OSF, AsPredicted), and sections 18.8 and 19.8 record deviations—including cases where the result was seen prior to tagging (rehearsal bug) and before the change of the data source. References such as "section 18.3" from the results code point to this document. Commit hashes in the results/ files refer to the local development history, which is not present in the public repository.
 
 # Original analysis plan text (working title: "Pre-registration")
 
