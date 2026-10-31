@@ -66,6 +66,8 @@ def transcript_symbols(gtf_path):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--darkness", required=True, help="darkness CSV: Hugo_Symbol,Protein_position,is_dark")
+    parser.add_argument("--genes", default=None,
+                        help="optional file with gene symbols to restrict the universe to")
     parser.add_argument("--output", required=True)
     parser.add_argument("--reference", default=str(REF))
     parser.add_argument("--gtf", default=str(GTF))
@@ -93,6 +95,10 @@ def main():
 
     ref = load_reference(args.reference)
     print("Reference chromosomes:", len(ref))
+    genes_ok = None
+    if args.genes:
+        genes_ok = {ln.strip() for ln in open(args.genes) if ln.strip()}
+        print("Gene universe restricted to", len(genes_ok), "genes")
 
     total = defaultdict(int)
     dark = defaultdict(int)
@@ -103,6 +109,8 @@ def main():
         symbol = sym.get(tid) or sym.get(tid.split(".")[0])
         if symbol is None:
             skipped_no_symbol += len(grp)
+            continue
+        if genes_ok is not None and symbol not in genes_ok:
             continue
         gene_dark = dark_by_gene.get(symbol)
         if gene_dark is None:
