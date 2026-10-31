@@ -1,0 +1,8 @@
+Sensitivity checks 2026-10-31 (pre-submission, review points 1-2)  
+  
+A. Genes with representative-transcript protein identical to UniProt: 13792 identical, 3786 different, 2546 no sequence.  
+B. Window-3 validation pass rate among validated mutations:  
+   george 99.5%% (139 fail), jhu 98.5%% (98), clcgp 99.5%% (35), luad 99.1%% (1234).  
+C. Global O/E (all samples): original background 0.9405 / 0.8897 (SCLC / LUAD);  
+   protein-identical background 0.9459 / 0.8949; identical-gene subset 0.9358 / 0.9013.  
+   Conclusion: coordinate-convention mismatch does NOT explain the depletion. 

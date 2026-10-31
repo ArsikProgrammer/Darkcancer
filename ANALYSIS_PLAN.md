@@ -326,6 +326,9 @@ smoking signature, across its full range (never-smokers to heavy smokers)?
 ### 19.3 Exclusion (fixed before the run)
 - Hypermutated samples: coding SNPs > 10x cohort median (repair-deficiency
   proxy). Preview on counts only: 1 sample flagged (max 2020 vs median 185).
+  *(Clarification 2026-10-31: the medians differ by mutation set — 185 on the
+  PanCanAtlas preview, 194 on the Firehose scale check, 150 in the run output
+  (computed on validated mutations). The rule itself is unchanged.)*
 
 ### 19.4 Primary model
 - Same as SCLC (section 6): O ~ offset(log E) + SBS4_std + TMB_std;

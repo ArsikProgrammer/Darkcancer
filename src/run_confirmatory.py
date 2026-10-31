@@ -99,7 +99,7 @@ def main():
     parser.add_argument("--perms", type=int, default=10000)
     parser.add_argument("--seed", type=int, default=20261028)
     parser.add_argument("--shuffle-sbs4", action="store_true",
-                        help="rehearsal: permute SBS4 within dataset (no real association)")
+                        help="rehearsal: permute SBS4 across samples (no real association)")
     args = parser.parse_args()
 
     lines = []
@@ -109,7 +109,7 @@ def main():
 
     commit = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True,
                             text=True, cwd=Path(__file__).parent).stdout.strip()
-    mode = "REHEARSAL (SBS4 shuffled within dataset)" if args.shuffle_sbs4 else "CONFIRMATORY"
+    mode = "REHEARSAL (SBS4 shuffled across samples)" if args.shuffle_sbs4 else "CONFIRMATORY"
     log(f"=== {mode} RUN ===")
     log(f"git commit: {commit}")
     log(f"seed: {args.seed}, permutations: {args.perms}")

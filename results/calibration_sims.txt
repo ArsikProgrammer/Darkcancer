@@ -1,0 +1,480 @@
+
+=== H0 (beta1=0): 500 runs, n=143, disp=0.15 ===
+bias:   mean beta1_hat = 0.0013 (true 0.0000), bias = +0.0013
+spread: empirical SD = 0.0359, mean model SE = 0.0347
+coverage of 95% CI: 0.940
+rejection rate (p<0.05): 0.060
+CI fully within equivalence bounds (log scale): 0.998
+
+=== effect (O/E=1.2): 500 runs, n=143, disp=0.15 ===
+bias:   mean beta1_hat = 0.1804 (true 0.1823), bias = -0.0019
+spread: empirical SD = 0.0332, mean model SE = 0.0343
+coverage of 95% CI: 0.962
+rejection rate (p<0.05): 1.000
+CI fully within equivalence bounds (log scale): 0.024
+
+=== H0 (beta1=0): 500 runs, n=143, disp=0.3 ===
+bias:   mean beta1_hat = -0.0005 (true 0.0000), bias = -0.0005
+spread: empirical SD = 0.0481, mean model SE = 0.0474
+coverage of 95% CI: 0.952
+rejection rate (p<0.05): 0.048
+CI fully within equivalence bounds (log scale): 0.924
+
+=== effect (O/E=1.2): 500 runs, n=143, disp=0.3 ===
+bias:   mean beta1_hat = 0.1804 (true 0.1823), bias = -0.0019
+spread: empirical SD = 0.0494, mean model SE = 0.0473
+coverage of 95% CI: 0.932
+rejection rate (p<0.05): 0.938
+CI fully within equivalence bounds (log scale): 0.042
+
+=== H0 (beta1=0): 500 runs, n=143, disp=0.15 ===
+bias:   mean beta1_hat = 0.0015 (true 0.0000), bias = +0.0015
+spread: empirical SD = 0.0334, mean model SE = 0.0331
+coverage of 95% CI: 0.940
+rejection rate (p<0.05): 0.060
+CI fully within equivalence bounds (log scale): 1.000
+
+=== effect (O/E=1.2): 500 runs, n=143, disp=0.15 ===
+bias:   mean beta1_hat = 0.1846 (true 0.1823), bias = +0.0023
+spread: empirical SD = 0.0350, mean model SE = 0.0331
+coverage of 95% CI: 0.932
+rejection rate (p<0.05): 1.000
+CI fully within equivalence bounds (log scale): 0.032
+
+=== H0 (beta1=0): 500 runs, n=143, disp=0.3 ===
+bias:   mean beta1_hat = -0.0009 (true 0.0000), bias = -0.0009
+spread: empirical SD = 0.0470, mean model SE = 0.0434
+coverage of 95% CI: 0.938
+rejection rate (p<0.05): 0.062
+CI fully within equivalence bounds (log scale): 0.954
+
+=== effect (O/E=1.2): 500 runs, n=143, disp=0.3 ===
+bias:   mean beta1_hat = 0.1813 (true 0.1823), bias = -0.0010
+spread: empirical SD = 0.0463, mean model SE = 0.0442
+coverage of 95% CI: 0.938
+rejection rate (p<0.05): 0.980
+CI fully within equivalence bounds (log scale): 0.038
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+WARNING: only 458/500 converged fits in H0 (beta1=0)
+
+=== H0 (beta1=0): 458 runs, n=143, disp=0.15 ===
+bias:   mean beta1_hat = 0.0005 (true 0.0000), bias = +0.0005
+spread: empirical SD = 0.0114, mean model SE = 0.0110
+coverage of 95% CI: 0.937
+rejection rate (p<0.05): 0.063
+CI fully within equivalence bounds (log scale): 1.000
+WARNING: only 450/500 converged fits in effect (O/E=1.2)
+
+=== effect (O/E=1.2): 450 runs, n=143, disp=0.15 ===
+bias:   mean beta1_hat = 0.1821 (true 0.1823), bias = -0.0002
+spread: empirical SD = 0.0106, mean model SE = 0.0109
+coverage of 95% CI: 0.956
+rejection rate (p<0.05): 1.000
+CI fully within equivalence bounds (log scale): 0.020
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+C:\Users\arsen\AppData\Roaming\Python\Python314\site-packages\statsmodels\discrete\discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  mlefit = super().fit(
+WARNING: only 485/500 converged fits in H0 (beta1=0)
+
+=== H0 (beta1=0): 485 runs, n=143, disp=0.3 ===
+bias:   mean beta1_hat = -0.0006 (true 0.0000), bias = -0.0006
+spread: empirical SD = 0.0114, mean model SE = 0.0116
+coverage of 95% CI: 0.959
+rejection rate (p<0.05): 0.041
+CI fully within equivalence bounds (log scale): 1.000
+WARNING: only 490/500 converged fits in effect (O/E=1.2)
+
+=== effect (O/E=1.2): 490 runs, n=143, disp=0.3 ===
+bias:   mean beta1_hat = 0.1830 (true 0.1823), bias = +0.0007
+spread: empirical SD = 0.0119, mean model SE = 0.0115
+coverage of 95% CI: 0.937
+rejection rate (p<0.05): 1.000
+CI fully within equivalence bounds (log scale): 0.022
