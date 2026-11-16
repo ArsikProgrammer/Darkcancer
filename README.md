@@ -1,163 +1,174 @@
-# Тёмный протеом и мутационный след табачного дыма
+# Dark Proteome and the Mutational Footprint of Tobacco Smoke
 
-Исследовательский проект на открытых данных: я проверяю, связан ли мутационный
-след табачного дыма в геноме опухоли с тем, куда попадают мутации — в «мягкие»
-(внутренне неупорядоченные, без жёсткой структуры) участки белков, или нет.
+A research project on open data: I test whether the mutational signature of
+tobacco smoke in the tumour genome is linked to where mutations land — in
+"soft" (intrinsically disordered, without a stable fold) protein regions — or
+not.
 
-## Идея и гипотеза
+## Idea and hypothesis
 
-«Мягкие» участки белков — участки без устойчивой трёхмерной формы. В этом
-проекте «тёмный протеом» — рабочее обозначение таких участков, операционально
-определённых как остатки с низкой уверенностью предсказания AlphaFold
-(pLDDT < 50). Это **прокси** для неупорядоченности, а не строгое определение
-IDR (внутренне неупорядоченных регионов) в смысле биофизики — и это ограничение
-ниже подчёркнуто ещё раз.
+"Soft" protein regions are segments without a stable three-dimensional shape.
+In this project, "dark proteome" is the working name for such regions,
+operationally defined as residues with low AlphaFold prediction confidence
+(pLDDT < 50). This is a **proxy** for disorder, not a strict definition of
+intrinsically disordered regions (IDRs) in the biophysical sense — a limitation
+emphasised again below.
 
-Проверяемая гипотеза (H1): после поправки на 96-контекстный состав мутаций
-самой опухоли — то есть на её «почерк» повреждений ДНК — доля мутаций в мягких
-участках растёт вместе с силой следа дыма (сигнатура SBS4). Нулевая гипотеза:
-после такой поправки систематического смещения нет. Важно: проверяется именно
-**остаточная связь после контекстной поправки**; это узкая, но корректно
-заданная гипотеза. Причинность не утверждается: прямого механизма «дым → белок»
-нет, и речь идёт о совпадении.
+The working hypothesis (H1): after adjusting for the tumour's own 96-context
+mutation spectrum — that is, its DNA damage "footprint" — the share of
+mutations in soft regions increases with the strength of the smoke signature
+(SBS4). The null hypothesis: no systematic shift remains after such an
+adjustment. Importantly, what is tested is exactly the **residual association
+after the context adjustment**; this is a narrow but correctly specified
+hypothesis. No causality is claimed: there is no direct mechanism linking
+"smoke" to "protein", and the study addresses coincidence only.
 
-## Данные
+## Data
 
-| Что | Источник | Объём |
+| What | Source | Scope |
 |---|---|---|
-| Мелкоклеточный рак (SCLC) | George et al. 2015 (WGS), Rudin et al. 2012 (JHU), Peifer et al. 2012 (CLCGP) через cBioPortal datahub | 143 первичные опухоли после удаления дублей и клеточных линий |
-| Аденокарцинома (LUAD) | TCGA, Firehose Legacy (мутации + клиника с курением) | 230 первичных опухолей, включая 32 некурящих |
-| Структура белков | AlphaFold Protein Structure Database (pLDDT по остаткам) | весь протеом |
-| Аннотации | GENCODE v19, UniProt/Swiss-Prot, COSMIC v3.3.1, hg19/GRCh37 | — |
+| Small-cell lung cancer (SCLC) | George et al. 2015 (WGS), Rudin et al. 2012 (JHU), Peifer et al. 2012 (CLCGP) via cBioPortal datahub | 143 primary tumours after removing duplicates and cell lines |
+| Adenocarcinoma (LUAD) | TCGA, Firehose Legacy (mutations + smoking clinical data) | 230 primary tumours, including 32 never-smokers |
+| Protein structures | AlphaFold Protein Structure Database (per-residue pLDDT) | whole proteome |
+| Annotations | GENCODE v19, UniProt/Swiss-Prot, COSMIC v3.3.1, hg19/GRCh37 | — |
 
-Как скачать данные: см. `download_tar.py` (архив AlphaFold),
-`download_luad.py` (мутации и клиника TCGA), скрипты `src/01–05` (MAF SCLC из
-cBioPortal datahub), `src/download_uniprot_fasta.py` (UniProt).
+How to download the data: see `download_tar.py` (AlphaFold archive),
+`download_luad.py` (TCGA mutations and clinical data), scripts `src/01–05`
+(SCLC MAFs from cBioPortal datahub), `src/download_uniprot_fasta.py` (UniProt).
 
-## Методы
+## Methods
 
-1. **Мутации → остаток белка.** Каждую мутацию я перевожу через транскрипт
-   (GENCODE v19, CDS, hg19) и сверяю получившуюся аминокислоту с UniProt. В
-   анализ попадают только мутации с подтверждённым совпадением остатка; доли
-   отброса отчитываются по когортам (13–17% в SCLC, 21% в LUAD).
-2. **Разметка мягких участков.** pLDDT < 50 (AlphaFold). Порог и правила
-   зафиксированы до анализа (см. `ANALYSIS_PLAN.md`).
-3. **Наблюдаемое и ожидаемое (O/E).** Для каждой опухоли: сколько мутаций
-   попало в мягкие участки (O) и сколько ожидалось (E) при случайном разбросе
-   с сохранением 96-контекстного состава этой опухоли. Фон «сколько мест
-   поражено каждым типом замены» посчитан по всему кодирующему пространству.
-4. **Модель.** Пуассоновская регрессия (устойчивый вариант — отрицательно
-   биномиальная) с log(E) как поправкой; главная мера — отношение O/E на 1
-   стандартное отклонение следа дыма. Граница «интересного» эффекта (0.833–1.2)
-   зафиксирована до анализа (см. `ANALYSIS_PLAN.md`, §7) как порог биологической
-   интересности: связь слабее 20% на SD для доли мутаций в белковых участках
-   трудно биологически интерпретировать. Это **не** предел различимости: по
-   ширине доверительных интервалов дизайн ограничивает эффект примерно ±3% на
-   SD (с оговоркой про шум предиктора, см. ниже). Устойчивость к сверхдисперсии
-   проверена симуляциями (500 прогонов на сценарий).
-5. **Контроли.** «Возрастной» след SBS1 как ложный предиктор; синонимичные
-   мутации как ложный исход. Провал любого контроля означает «результат под
-   вопросом».
-6. **Тест по фону (параметрический).** Мутации «перебрасываются» на случайные
-   кодирующие позиции с сохранением типов замен; реализация — биномиальная
-   выборка из фона для каждого контекста (это параметрический тест глобального
-   O/E, а не классическое перестановочное перемешивание меток). При 10 000
-   прогонах минимально достижимое p ≈ 1e-4; значения на этой границе следует
-   читать как «p ≤ 1e-4».
-7. **Дисциплина анализа.** План с правилами и границами зафиксирован до
-   запусков (`ANALYSIS_PLAN.md`); основной запуск по каждой когорте выполнялся
-   один раз; все отклонения записаны датированно в том же документе.
+1. **Mutations → protein residue.** I translate each mutation through its
+   transcript (GENCODE v19, CDS, hg19) and compare the resulting amino acid
+   with UniProt. Only mutations with a confirmed residue match enter the
+   analysis; discarded fractions are reported per cohort (13–17% in SCLC, 21%
+   in LUAD).
+2. **Annotation of soft regions.** pLDDT < 50 (AlphaFold). The threshold and
+   the rules were fixed before the analysis (see `ANALYSIS_PLAN.md`).
+3. **Observed and expected (O/E).** For each tumour: how many mutations landed
+   in soft regions (O) and how many were expected (E) under a random placement
+   that preserves the 96-context spectrum of that tumour. The background of
+   "how many sites are affected by each substitution type" was computed over
+   the entire protein-coding space.
+4. **Model.** Poisson regression (robust variant — negative binomial) with
+   log(E) as offset; the main measure is the O/E ratio per 1 standard
+   deviation of the smoke signature. The threshold of an "interesting" effect
+   (0.833–1.2) was fixed before the analysis (see `ANALYSIS_PLAN.md`, §7) as
+   the threshold of biological interest: an association weaker than 20% per SD
+   in the share of mutations in protein regions is hard to interpret
+   biologically. This is **not** a detection limit: from the width of the
+   confidence intervals, the design constrains effects to roughly ±3% per SD
+   (with a caveat about predictor noise, see below). Robustness to
+   overdispersion was checked by simulations (500 runs per scenario).
+5. **Controls.** The "age-related" signature SBS1 as a negative predictor;
+   synonymous mutations as a negative outcome. Failure of any control means
+   the result is "under question".
+6. **Background test (parametric).** Mutations are "reshuffled" onto random
+   coding positions while preserving substitution types; the implementation is
+   a binomial draw from the background for each context (this is a parametric
+   test of the global O/E, not a classical label permutation). With 10,000
+   runs the minimum attainable p ≈ 1e-4; values at this bound should be read
+   as "p ≤ 1e-4".
+7. **Analysis discipline.** The plan with rules and bounds was fixed before
+   the runs (`ANALYSIS_PLAN.md`); the main run for each cohort was executed
+   exactly once; all deviations are recorded with dates in the same document.
 
-## Результаты
+## Results
 
-**Мелкоклеточный рак (143 курильщика).** После контекстной поправки след дыма
-не связан с долей мутаций в мягких участках: O/E = 1.008 на 1 SD (95% интервал
-0.985–1.033) — информативный нуль: эффекты порядка 1.2 и больше исключены.
+**Small-cell lung cancer (143 smokers).** After the context adjustment, the
+smoke signature was not associated with the share of mutations in soft
+regions: O/E = 1.008 per SD (95% interval 0.985–1.033) — an informative null:
+effects of about 1.2 and larger are excluded.
 
-**Аденокарцинома (230 опухолей, шкала от нуля у некурящих до высоких
-значений).** Доля мутаций в мягких участках не отслеживает след дыма по всей
-шкале: O/E = 0.9998 на 1 SD (0.975–1.025). Независимые меры курения дают то же:
-пачко-годы 0.9991, сравнение некурящих с курящими 1.017.
+**Adenocarcinoma (230 tumours, a range from zero in never-smokers to high
+values).** The share of mutations in soft regions did not track the smoke
+signature anywhere along the range: O/E = 0.9998 per SD (0.975–1.025).
+Independent smoking measures agree: pack-years 0.9991, never-versus-current
+smokers 1.017.
 
-**Сырая (непоправленная) связь** (скрипт `src/raw_association.py`, вывод в
-`results/raw_association.txt`) тоже отсутствует в обеих когортах: корреляция
-доли мягких мутаций с SBS4 — Pearson r = −0.12 (p = 0.16) и Spearman ρ = −0.03
-(p = 0.75) в SCLC; Pearson r = +0.08 (p = 0.25) и Spearman ρ = +0.09 (p = 0.20)
-в LUAD. То есть вывод держится и без контекстной поправки. Это описательная
-статистика без поправки на когорту и число мутаций; расхождение Pearson и
-Spearman в SCLC указывает на влияние выбросов.
+**Raw (unadjusted) association** (script `src/raw_association.py`, output in
+`results/raw_association.txt`) is also absent in both cohorts: the correlation
+of the soft-region mutation share with SBS4 — Pearson r = −0.12 (p = 0.16) and
+Spearman ρ = −0.03 (p = 0.75) in SCLC; Pearson r = +0.08 (p = 0.25) and
+Spearman ρ = +0.09 (p = 0.20) in LUAD. Thus the conclusion holds even without
+the context adjustment. This is descriptive statistics without adjustment for
+cohort or mutation burden; the divergence between Pearson and Spearman in SCLC
+indicates outlier influence.
 
-**Побочное наблюдение.** В мягких участках мутаций несколько меньше ожидаемого
-(O/E ≈ 0.89–0.94). Причина не установлена; возможны технические причины
-(покрытие секвенирования, экспрессия, время репликации, отбор, особенности
-отсева при аннотации). Как биологический вывод это не используется.
+**Side observation.** There are somewhat fewer mutations in soft regions than
+expected (O/E ≈ 0.89–0.94). The cause is not established; technical causes are
+possible (sequencing coverage, expression, replication timing, selection,
+filtering specifics during annotation). This is not used as a biological
+conclusion.
 
-**Итог.** Остаточная связь следа дыма с распределением мутаций по мягким
-участкам белков не обнаружена: ни среди курильщиков с разной силой следа, ни
-на полной шкале от некурящих до курящих. Эффекты ≥ 1.2 на SD исключены; более
-того, доверительные интервалы сужают правдоподобные эффекты до нескольких
-процентов на SD — на шкале **оценённого** следа (из-за шума предиктора
-истинный эффект может быть больше измеренного, см. ограничения).
+**Bottom line.** No residual association was found between the smoke signature
+and the distribution of mutations in soft protein regions: neither among
+smokers with differing signature strength, nor across the full range from
+never-smokers to heavy smokers. Effects ≥ 1.2 per SD are excluded; moreover,
+the confidence intervals narrow plausible effects to a few percent per SD — on
+the scale of the **measured** signature (due to predictor noise the true
+effect could be larger than the measured one, see limitations).
 
-## Ограничения
+## Limitations
 
-- **Абсолютным значениям O/E доверять нельзя.** Модель ожидания даёт устойчивое
-  глобальное смещение (O/E ≈ 0.89–0.94) — вероятно, из-за неидеального фона
-  (репрезентативный транскрипт на ген, экспрессия, репликация, отбор, отсев
-  мутаций). Надёжны **относительные** сравнения внутри когорт (поэтому главные
-  выводы сделаны по связям, а не по абсолютным уровням).
-- След дыма оценивается NNLS по нескольким сигнатурам на сотнях кодирующих
-  мутаций — неточный предиктор; это ослабляет видимый эффект (attenuation).
-  Пачко-годы как независимая мера дают тот же результат.
-- След дыма и исход считаются по одним и тем же мутациям (для пачко-годов этой
-  проблемы нет).
-- «Мягкость» — предсказание AlphaFold (pLDDT < 50), а не эксперимент и не
-  строгое определение неупорядоченности.
-- Точные территории захвата экзомных панелей неизвестны; фон считается по
-  кодирующему пространству.
-- Выводы относятся к вариации в пределах одного вида рака; причинный эффект
-  «курение против не-курения» этим дизайном не устанавливается.
-- План анализа зафиксирован внутренне (даты в `ANALYSIS_PLAN.md`), без внешней
-  регистрации (OSF и т.п.). Файлы в `results/` сохранены как есть: они
-  используют прежнюю терминологию (метка «PERMUTATION») и содержат хэши
-  коммитов локальной истории разработки, которой нет в этом репозитории;
-  актуальная терминология — в коде и в этом README.
+- **Absolute O/E values cannot be trusted.** The expectation model shows a
+  persistent global shift (O/E ≈ 0.89–0.94) — probably due to an imperfect
+  background (representative transcript per gene, expression, replication,
+  selection, mutation filtering). **Relative** within-cohort comparisons are
+  reliable (hence the main conclusions are drawn from associations, not from
+  absolute levels).
+- The smoke signature is estimated by NNLS from several signatures on hundreds
+  of coding mutations — an imprecise predictor; this attenuates the observed
+  effect. Pack-years, an independent measure, give the same result.
+- The smoke signature and the outcome are computed from the same mutations
+  (not an issue for pack-years).
+- "Softness" is an AlphaFold prediction (pLDDT < 50), not an experiment and
+  not a strict definition of disorder.
+- Exact exome capture territories are unknown; the background is computed over
+  the protein-coding space.
+- Conclusions concern variation within a single cancer type; the causal effect
+  of "smoking versus no smoking" is not established by this design.
+- The analysis plan was fixed internally (dates in `ANALYSIS_PLAN.md`), without
+  external registration (OSF etc.). Files in `results/` are kept as they are:
+  they use the earlier terminology (the "PERMUTATION" label) and contain commit
+  hashes of the local development history, which is not in this repository;
+  the current terminology is in the code and in this README.
 
-## Воспроизведение
+## Reproduction
 
-Порядок шагов (после загрузки данных):
+Order of steps (after downloading the data):
 
 ```
-python run_pipeline.py                 # ингест -> контекст -> сигнатуры
+python run_pipeline.py                 # ingest -> context -> signatures
 python src/map_mutations_to_residues.py ... / src/map_jhu_coordinates.py --mutations-csv ...
 python src/build_alphafold_darkness.py --all-residues --output data/processed/darkness_proteome_pLDDT50.csv
 python src/build_background.py --darkness data/processed/darkness_proteome_pLDDT50.csv --output data/processed/background_pLDDT50.csv
 python src/build_opportunity.py --output data/processed/opportunity_96.csv
 python src/refit_signatures.py --opportunity data/processed/opportunity_96.csv ...
 python src/annotate_mutations_darkness.py --mapping ... --darkness ...
-python src/run_confirmatory.py -- ...   # SCLC (один запуск)
-python src/run_luad.py -- ...           # LUAD (один запуск)
+python src/run_confirmatory.py -- ...   # SCLC (single run)
+python src/run_luad.py -- ...           # LUAD (single run)
 ```
 
-Точные аргументы — в docstring'ах модулей; итоговые команды запусков продубли-
-рованы в `ANALYSIS_PLAN.md`. Тесты (`tests/`): 9 тестов (контекст, статистика,
-O/E-логика, парсинг позиций) выполняются везде, включая CI; ещё 2 — проверка
-маппинга на горячих точках TP53 R175H / KRAS G12C — выполняются только локально
-с каталогом `data/` и автоматически пропускаются на чистом клоне (итого 11
-локально).
+Exact arguments are in the module docstrings; the final run commands are also
+duplicated in `ANALYSIS_PLAN.md`. Tests (`tests/`): 9 tests (context,
+statistics, O/E logic, position parsing) run everywhere, including CI; 2 more
+— mapping validation at the known hotspots TP53 R175H and KRAS G12C — run
+locally with the `data/` directory only and are automatically skipped on a
+clean clone (11 in total locally).
 
-## Структура репозитория
+## Repository structure
 
 ```
-src/       — конвейер: ингест (01-10), контекст, маппинг на остатки, разметка
-             тёмности, фон O/E, сигнатуры, модели, симуляции
-tests/     — проверки контекста и маппинга на известных мутациях
-results/   — файлы итоговых запусков с контрольными суммами входов
-ANALYSIS_PLAN.md — план анализа, зафиксированный до запусков
+src/       — the pipeline: ingest (01-10), context, mapping to residues,
+             darkness annotation, O/E background, signatures, models, simulations
+tests/     — context and mapping checks at known mutations
+results/   — final run outputs with input checksums
+ANALYSIS_PLAN.md — the analysis plan, fixed before the runs
 download_*.py, run_pipeline.py, requirements.txt, LICENSE
 ```
 
-## Литература
+## References
 
 1. George J. et al. Comprehensive genomic profiles of small cell lung cancer.
    *Nature* 524, 47–53 (2015). doi:10.1038/nature15338.
@@ -188,6 +199,6 @@ download_*.py, run_pipeline.py, requirements.txt, LICENSE
 12. UniProt Consortium. UniProt: the Universal Protein Knowledgebase in 2023.
     *Nucleic Acids Res* 51, D523–D531 (2023). doi:10.1093/nar/gkac1000.
 
-## Лицензия
+## License
 
-MIT, см. `LICENSE`.
+MIT, see `LICENSE`.
