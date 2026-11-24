@@ -364,3 +364,106 @@ smoking signature, across its full range (never-smokers to heavy smokers)?
   mutation source was amended to Firehose Legacy (19.1), all pipeline stages
   were rebuilt on it, and the rules, controls and thresholds remained
   unchanged. The completed run (single, tagged) is the one of record.
+
+---
+
+## 20. Disorder-based darkness re-analysis (fixed 2026-11-24, before the runs)
+
+**Motivation (external review).** AlphaFold pLDDT is a confidence measure, not
+a disorder predictor, and AlphaFold is known to produce plausible-looking
+structure where none exists ("hallucination"). An external reviewer recommended
+repeating the analysis with specialized sequence-based disorder predictors.
+The §1-19 results stand unchanged as the runs of record; this section defines
+the planned re-analysis.
+
+- **Predictor:** metapredict (pinned in requirements.txt), per-residue disorder
+  propensity in [0, 1], computed on the reviewed human UniProt sequences (the
+  same sequences used for residue validation).
+- **State rule:** `is_disordered = score >= threshold`. **Primary threshold
+  0.5; sensitivity thresholds 0.4 and 0.6** (exploratory, as §2/§11).
+  Scores are computed once; thresholds are applied to the cached scores.
+- **Everything else is unchanged** from §6/§18/§19: same mutation sets, mapping
+  validation, cohorts, exclusions, NB2-t with log(E) offset, predictors
+  (SBS4_std + TMB_std + wes), negative controls (SBS1 predictor; Silent
+  outcome), equivalence bounds (0.833, 1.2), interpretation rules 18.3,
+  control-failure rule, one-run discipline and output format (git commit +
+  SHA-256 of all inputs).
+- The static re-analysis uses the unchanged analysis code path
+  (annotate_mutations_darkness -> build_background -> run_confirmatory /
+  run_luad) with the disorder track in place of the pLDDT track. New runs are
+  written to **new dated output files**; the §18/§19 run files are never
+  replaced.
+
+## 21. Mutation-induced disorder transitions (fixed 2026-11-24, before the runs)
+
+**Question (external review).** Do mutations in tumours with a stronger smoke
+signature differ in how they change the local disorder propensity of the
+protein? Each mutation is classified into one of four transition classes by
+the disorder state of the mutated position before and after the substitution:
+**O-O, O-D, D-O, D-D** (O = ordered, D = disordered).
+
+### 21.1 Per-mutation quantities
+- Population: **validated missense mutations** (mapping validation exactly as
+  §3; `uniprot_pos = protein_position + offset`). The alternative amino acid
+  is parsed from `HGVSp_Short` (`^p?\.?([A-Z*])(\d+)([A-Z*])$`); rows without
+  a parsable amino-acid change (nonsense, splice, ambiguous) are excluded and
+  counted per cohort.
+- `wt_score` = metapredict score of the WT UniProt sequence at `uniprot_pos`;
+  `mut_score` = score at the same position after applying the substitution to
+  the full sequence. `delta_pos = mut_score - wt_score`;
+  `delta_window10` = mean score difference over the clipped window
+  [pos-10, pos+10] (window length recorded per mutation).
+- **Transition class** = `state_wt -> state_mut` at `uniprot_pos`, states from
+  the §20 threshold rule (primary 0.5; sensitivity 0.4/0.6 re-derived from the
+  same cached scores).
+
+### 21.2 Silent negative control (fixed)
+Silent mutations do not change the protein sequence: `delta_pos = 0` and
+`delta_window10 = 0` exactly, and the class is O-O or D-D by construction.
+The run asserts these invariants; any violation invalidates the run (pipeline
+bug). The Silent class model uses the static disorder background
+(§20 track): E[O-O] = 1 - f_dark(c), E[D-D] = f_dark(c).
+
+### 21.3 O/E per transition class
+- Per tumour t and class k: O_tk = number of its mutations of class k;
+  E_tk = sum over the same mutations of p_k(context_96), where p_k(c) is the
+  per-channel probability of class k. Cells with E_tk = 0 are dropped and
+  counted.
+- **Transition background (fixed).** p_k(c) is computed over the representative
+  GENCODE v19 transcripts (longest CDS per gene, as in build_background) that
+  translate to a protein **identical to the gene's UniProt sequence** (exact
+  coordinates; genes counted). At every such coding site each of the 3 SNV
+  alleles is translated; synonymous and stop outcomes are excluded; each
+  remaining opportunity yields (context_96, alt residue) and, after mutant
+  scoring, a transition class. Per channel, class fractions are estimated from
+  **K = 5000 sampled opportunities** (reservoir sampling, seed 20260115);
+  per-channel sampling SEs are reported. Channel coverage of the background
+  is reported as in 18.6.
+
+### 21.4 Models and rules
+- Per class k (O-O, O-D, D-O, D-D) and the combined "disorder-changing" class
+  (O-D + D-O, E = E_OD + E_DO): NB2-t `O ~ offset(log E) + SBS4_std + TMB_std
+  (+ wes in SCLC)` with the §6 boundary rule, t-based CI, equivalence bounds
+  (0.833, 1.2) and the 18.3 interpretation and control-failure rules.
+- Controls (same code path): SBS1 as predictor (same outcomes); Silent
+  mutations as outcome (21.2).
+- Background-resampling test: per tumour and channel, multinomial draws over
+  the 4 class probabilities; 10,000 runs; p reported as 1/(runs+1) bounds.
+- **Continuous deltas are descriptive**: per-tumour mean `delta_pos` and
+  mean `delta_window10` regressed on SBS4_std + TMB_std (+ wes) with HC1
+  t-based CIs; no equivalence claim is made for score units.
+- Sensitivity: thresholds 0.4/0.6 (21.1); mapping-discard covariate as 18.5.1;
+  for LUAD: pack-years and never-vs-current secondaries as 19.5.
+
+### 21.5 Cross-predictor robustness (fixed)
+A second specialized predictor (IUPred2A standalone if available) scores a
+seeded stratified subset of ~3000 mutations (strata: transition class x
+cohort x |wt_score - 0.5| band). Reported in a separate output file:
+transition-class concordance and Spearman correlation of deltas.
+Pre-fixed: this check is descriptive and **cannot alter the primary results**.
+
+### 21.6 Run discipline
+One run per cohort and per analysis, one dated output file each, with git
+commit and SHA-256 of all inputs. Rehearsals use the shuffled-predictor flag
+and are labelled. Any post-unblinding change is a dated deviation (18.4); the
+first result of each run is preserved.
