@@ -138,15 +138,20 @@ def main():
           f"(unscored dropped: {counts['missense'] - n_scored})")
 
     # silent rows: sequence unchanged -> zero deltas, class from WT state only
-    wt_cache = load_wt_scores()
-    sil["wt_score"] = [float(wt_cache[a][int(p) - 1])
-                       for a, p in zip(sil["uniprot_accession"], sil["uniprot_pos"])]
-    sil["mut_score"] = sil["wt_score"]
-    sil["delta_pos"] = 0.0
-    sil["delta_window10"] = 0.0
-    sil["window_len"] = 0
-    sil["ref_aa"] = sil.get("uniprot_aa")
-    sil["alt_aa"] = sil["ref_aa"]
+    if len(sil) > 0:
+        wt_cache = load_wt_scores()
+        sil["wt_score"] = [float(wt_cache[a][int(p) - 1])
+                           for a, p in zip(sil["uniprot_accession"], sil["uniprot_pos"])]
+        sil["mut_score"] = sil["wt_score"]
+        sil["delta_pos"] = 0.0
+        sil["delta_window10"] = 0.0
+        sil["window_len"] = 0
+        sil["ref_aa"] = sil.get("uniprot_aa")
+        sil["alt_aa"] = sil["ref_aa"]
+    else:
+        for c in ["wt_score", "mut_score", "delta_pos", "delta_window10", "window_len",
+                  "ref_aa", "alt_aa"]:
+            sil[c] = pd.Series(dtype=float)
 
     thr = args.threshold
     for df in (mis, sil):
