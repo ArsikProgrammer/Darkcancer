@@ -119,7 +119,8 @@ def resampling_test(nonsyn, trans_bg, rng, perms, log):
     log("BACKGROUND RESAMPLING (multinomial, parametric null):")
     labels = CLASSES + [CHANGING]
     obs_all = np.append(obs, (O[1] + O[2]) / (E[1] + E[2]))
-    null_all = np.column_stack([null, (null[:, 1] + null[:, 2]) / (E[1] + E[2])])
+    combined_null = (null[:, 1] * E[1] + null[:, 2] * E[2]) / (E[1] + E[2])
+    null_all = np.column_stack([null, combined_null])
     for k, lbl in enumerate(labels):
         p_hi = (1 + int((null_all[:, k] >= obs_all[k]).sum())) / (perms + 1)
         p_lo = (1 + int((null_all[:, k] <= obs_all[k]).sum())) / (perms + 1)
