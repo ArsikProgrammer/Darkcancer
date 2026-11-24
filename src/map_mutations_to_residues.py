@@ -208,12 +208,12 @@ def main():
             if isinstance(codons, str) and "/" in codons:
                 ref_codon = codons.split("/")[0]
                 ref_aa_codon = translate_codon(ref_codon)
-            # JHU RefSeq: HGVSp_Short like G722C, M1?, X70_splice
+            # HGVSp_Short: G722C (API), p.R175H (MAF); M1?, X70_splice, *60*
             if ref_aa_codon is None:
                 hgvsp = r.get("HGVSp_Short")
                 if isinstance(hgvsp, str):
                     import re
-                    mm = re.match(r"^([A-Z*])(\d+)", hgvsp)
+                    mm = re.match(r"^(?:p\.)?([A-Z*])(\d+)", hgvsp)
                     if mm:
                         ref_aa_codon = mm.group(1)
             translated_aa = None
