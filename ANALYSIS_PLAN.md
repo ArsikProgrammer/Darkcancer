@@ -468,6 +468,17 @@ commit and SHA-256 of all inputs. Rehearsals use the shuffled-predictor flag
 and are labelled. Any post-unblinding change is a dated deviation (18.4); the
 first result of each run is preserved.
 
+**Deviations log (dated).**
+- **2026-11-24 — resampling reporting bug (technical restart).** In the first
+  two transition runs (t0.5 SCLC and LUAD) the combined O-D+D-O row of the
+  background-resampling section showed a null mean of 0.002 (a normalization
+  bug: the combined null averaged already-normalized class ratios instead of
+  combining draws on the count scale). All model fits, estimates and verdicts
+  were unaffected. The defective outputs are preserved as
+  `results/disorder_transitions*_20261124_defective_resampling_v1.txt`; the
+  corrected runs (commit 492ea92) are the files of record. The t0.4/t0.6
+  sensitivity runs already used the corrected code.
+
 ---
 
 ## 22. Recovery and rebuild log (2026-11-24)

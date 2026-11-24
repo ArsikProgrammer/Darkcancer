@@ -1,0 +1,31 @@
+=== CONFIRMATORY RUN ===
+git commit: d72c163b88546ad8550e0746c6b9b92eef1814e5
+seed: 20261028, permutations: 10000
+
+-- input checksums (SHA-256) --
+8468f4a24127aa8f54184af52910bb5300d13d10691a42868c77a74cc48aa726  data/processed/annotated_disorder_t0.4_george.csv
+69240498393d1890c7734bdc607f0fa420a867c3e3145d87d5922a51f0378e7b  data/processed/annotated_disorder_t0.4_jhu.csv
+11ccf35280b30865c25b4ea719538e406c361e31542c9ba6aa7df98984551249  data/processed/annotated_disorder_t0.4_clcgp.csv
+fea8700fc269a7159d459223b38315e1ac1b124c1dd3bf5e71f1f7a40e3e6efd  data/processed/background_metapredict_t0.4.csv
+393cf51ec0231db36404de24a058ecdd119087d95c44cd5bcaf5accfc4e20e47  data/processed/tumor_signature_activities_refit_dedup.csv
+dcb549c5f6e4e90150e5ebd9a369c19d835951628951f0f80280bec00ceecd76  data/processed/george_mapping.csv
+f99e0e250eace1abf81cb77dede300bcb1b846f0e2ba3be5533714513fd6ddf2  data/processed/jhu_mapping.csv
+3db1d6e13737450838d71bfb15e84d2ef9ba46fe1a776d07fbc2387db8d8a6a6  data/processed/clcgp_mapping.csv
+
+PRIMARY (SBS4, all coding): n_samples=143, n_mutations=36346 (dropped unmapped context: 0)
+  [NB2 alpha->0 boundary: Poisson-t limit]
+  O/E ratio per 1 SD = 0.9958 (95% CI 0.9759..1.0162) -> INFORMATIVE NULL
+CONTROL A (SBS1 predictor, all coding): n_samples=143, n_mutations=36346 (dropped unmapped context: 0)
+  [NB2 alpha->0 boundary: Poisson-t limit]
+  O/E ratio per 1 SD = 0.9984 (95% CI 0.9801..1.0171) -> INFORMATIVE NULL
+CONTROL B (SBS4 predictor, Silent outcome): n_samples=113, n_mutations=7731 (dropped unmapped context: 0)
+  [NB2 alpha->0 boundary: Poisson-t limit]
+  O/E ratio per 1 SD = 0.9859 (95% CI 0.9455..1.0281) -> INFORMATIVE NULL
+
+BACKGROUND RESAMPLING (parametric null): observed global O/E = 0.9310, null mean = 1.0001 sd = 0.0066
+  empirical p (enrichment) = 1, p (depletion) = 9.999e-05 (at 10000 runs the minimum is 1.0e-04; read as bound, not estimate)
+
+SECONDARY (discard covariate): O/E per 1 SD = 0.9962 (95% CI 0.9762..1.0165) -> INFORMATIVE NULL  [NB2 alpha->0 boundary: Poisson-t limit]
+  (compare with PRIMARY; matching conclusions => discard bias not driving result)
+
+CONTROLS PASSED: primary result stands per pre-registration 18.3

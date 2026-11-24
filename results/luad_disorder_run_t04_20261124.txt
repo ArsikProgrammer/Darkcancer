@@ -1,0 +1,32 @@
+=== CONFIRMATORY (LUAD dose-response) RUN ===
+git commit: d72c163b88546ad8550e0746c6b9b92eef1814e5
+seed: 20261028, permutations: 10000
+
+-- input checksums (SHA-256) --
+efbe6488fc1839ce12a46888935d19579d915491648063b5af655fdf3b545dec  data/processed/annotated_disorder_t0.4_luad.csv
+fea8700fc269a7159d459223b38315e1ac1b124c1dd3bf5e71f1f7a40e3e6efd  data/processed/background_metapredict_t0.4.csv
+a3024b62148cef858c98e416c6c9a1d8b3e8cd648488fbc0f89813fed45de436  data/processed/luad_signature_activities.csv
+cbc10c0af73b6f8979c4dcec2e6a8af1f4b86f9b1fd45632cd93e01b824518f2  data/processed/luad_mapping.csv
+a0328c49d2c8e9d4d25dead88dad0608350f8daa33c537642eaa1f0847cb89a2  data/raw/luad_smoking_data_clinical_patient.txt
+
+Exclusion (coding SNPs > 10x median 159): 0 samples []
+
+PRIMARY (SBS4 dose, all coding): n_samples=230, n_mutations=55515 (dropped unmapped context: 0)
+  [NB2 alpha->0 boundary: Poisson-t limit]
+  O/E ratio per 1 SD = 0.9975 (95% CI 0.9775..1.0179) -> INFORMATIVE NULL
+CONTROL A (SBS1 predictor): n_samples=230, n_mutations=55515 (dropped unmapped context: 0)
+  [NB2 alpha->0 boundary: Poisson-t limit]
+  O/E ratio per 1 SD = 0.9792 (95% CI 0.9490..1.0103) -> INFORMATIVE NULL
+CONTROL B (SBS4, Silent outcome): n_samples=230, n_mutations=13297 (dropped unmapped context: 0)
+  [NB2 alpha->0 boundary: Poisson-t limit]
+  O/E ratio per 1 SD = 1.0208 (95% CI 0.9786..1.0648) -> INFORMATIVE NULL
+
+BACKGROUND RESAMPLING (parametric null): observed global O/E = 0.8819, null mean = 1.0000 sd = 0.0056; p(enrich) = 1, p(deplete) = 9.999e-05 (minimum at 10000 runs: 1.0e-04, read as bound)
+
+SECONDARY 1 (pack-years, n=158): O/E per 1 SD = 0.9994 (95% CI 0.9817..1.0174) -> INFORMATIVE NULL  [NB2 alpha->0 boundary: Poisson-t limit]
+
+SECONDARY 2 (never vs current, n=77): O/E per 1 SD = 1.0068 (95% CI 0.9672..1.0480) -> INFORMATIVE NULL  [NB2 alpha->0 boundary: Poisson-t limit]
+
+SECONDARY 3 (discard covariate): O/E per 1 SD = 0.9975 (95% CI 0.9775..1.0179) -> INFORMATIVE NULL  [NB2 alpha->0 boundary: Poisson-t limit]
+
+CONTROLS PASSED: primary result stands per pre-registration 18.3/19.4

@@ -1,0 +1,10 @@
+=== CROSS-PREDICTOR CHECK (IUPred2A, plan 21.5; descriptive, cannot alter primary) ===
+mode: rest, seed: 20261124, subset n: 318
+
+REST: fetching WT scores for 120 accessions (capped at 120)
+WT state concordance at mutated positions: 0.8244 (n = 131)
+WT score Spearman rho = 0.7672 (p = 1.2e-26)
+mean shift (IUPred - metapredict) = +0.0028
+concordance by metapredict class: {'D-D': 0.7632, 'D-O': 0.0, 'O-D': 0.75, 'O-O': 0.9048}
+
+NOTE: mutant-side cross-check (delta concordance) requires IUPred2A standalone; the web API scores UniProt accessions only.

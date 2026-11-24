@@ -1,0 +1,78 @@
+=== CONFIRMATORY (LUAD transitions) RUN ===
+git commit: 492ea92d69a9e54b8550ee8e454e6bf7149ad7c8
+seed: 20261124, permutations: 10000
+
+-- input checksums (SHA-256) --
+298afd398ddb11f29388a0292c8b632b275c296a3a8bea3ead4bbf8359438211  data/processed/disorder_transitions_t0.6_luad.csv
+289a9cd2990730eb3846f215930abdb2549e69d3eca3282332f2e0176e1a5872  data/processed/transition_background_metapredict_t0.6.csv
+f50fa11b43cd92e300d28ea56a6b627bf1e711661c313146583b2c07ab810d8c  data/processed/background_metapredict_t0.6.csv
+a3024b62148cef858c98e416c6c9a1d8b3e8cd648488fbc0f89813fed45de436  data/processed/luad_signature_activities.csv
+a0328c49d2c8e9d4d25dead88dad0608350f8daa33c537642eaa1f0847cb89a2  data/raw/luad_smoking_data_clinical_patient.txt
+cbc10c0af73b6f8979c4dcec2e6a8af1f4b86f9b1fd45632cd93e01b824518f2  data/processed/luad_mapping.csv
+
+Exclusion (coding SNPs > 10x median 151): 0 samples []
+SILENT INVARIANTS (21.2): deltas zero = True, classes in O-O/D-D = True (silent rows: 13297)
+
+Non-synonymous rows: 38837; transition counts: {'O-O': 27863, 'D-D': 9993, 'D-O': 666, 'O-D': 315}
+
+[class O-O] dropped unmapped context rows: 0, zero-E samples dropped: 0
+O-O (SBS4): n_samples=230, n_mutations=38837
+  [NB2 alpha->0 boundary: Poisson-t limit]
+  O/E ratio per 1 SD = 1.0017 (95% CI 0.9856..1.0180) -> INFORMATIVE NULL
+[class O-D] dropped unmapped context rows: 0, zero-E samples dropped: 0
+O-D (SBS4): n_samples=230, n_mutations=38837
+  [NB2 alpha->0 boundary: Poisson-t limit]
+  O/E ratio per 1 SD = 0.9742 (95% CI 0.8355..1.1359) -> INFORMATIVE NULL
+[class D-O] dropped unmapped context rows: 0, zero-E samples dropped: 0
+D-O (SBS4): n_samples=230, n_mutations=38837
+  [NB2 alpha->0 boundary: Poisson-t limit]
+  O/E ratio per 1 SD = 1.0258 (95% CI 0.9188..1.1453) -> INFORMATIVE NULL
+[class D-D] dropped unmapped context rows: 0, zero-E samples dropped: 0
+D-D (SBS4): n_samples=230, n_mutations=38837
+  [NB2 alpha->0 boundary: Poisson-t limit]
+  O/E ratio per 1 SD = 0.9972 (95% CI 0.9708..1.0243) -> INFORMATIVE NULL
+[class O-D+D-O] dropped unmapped context rows: 0, zero-E samples dropped: 0
+O-D+D-O (SBS4): n_samples=230, n_mutations=38837
+  [NB2 alpha->0 boundary: Poisson-t limit]
+  O/E ratio per 1 SD = 1.0098 (95% CI 0.9234..1.1043) -> INFORMATIVE NULL
+
+O-O (CONTROL A: SBS1): n_samples=230, n_mutations=38837
+  [NB2 alpha->0 boundary: Poisson-t limit]
+  O/E ratio per 1 SD = 1.0050 (95% CI 0.9805..1.0301) -> INFORMATIVE NULL
+O-D (CONTROL A: SBS1): n_samples=230, n_mutations=38837
+  [NB2 alpha->0 boundary: Poisson-t limit]
+  O/E ratio per 1 SD = 0.9373 (95% CI 0.7249..1.2119) -> INCONCLUSIVE
+D-O (CONTROL A: SBS1): n_samples=230, n_mutations=38837
+  [NB2 alpha->0 boundary: Poisson-t limit]
+  O/E ratio per 1 SD = 0.9029 (95% CI 0.7452..1.0939) -> INCONCLUSIVE
+D-D (CONTROL A: SBS1): n_samples=230, n_mutations=38837
+  [NB2 alpha->0 boundary: Poisson-t limit]
+  O/E ratio per 1 SD = 0.9898 (95% CI 0.9492..1.0321) -> INFORMATIVE NULL
+O-D+D-O (CONTROL A: SBS1): n_samples=230, n_mutations=38837
+  [NB2 alpha->0 boundary: Poisson-t limit]
+  O/E ratio per 1 SD = 0.9149 (95% CI 0.7845..1.0669) -> INCONCLUSIVE
+
+[CONTROL B] dropped unmapped context rows: 0, zero-E samples: 0
+CONTROL B (Silent outcome, static background): n_samples=230, n_mutations=13297
+  [NB2 alpha->0 boundary: Poisson-t limit]
+  O/E ratio per 1 SD = 1.0131 (95% CI 0.9674..1.0610) -> INFORMATIVE NULL
+
+BACKGROUND RESAMPLING (multinomial, parametric null):
+  O-O: observed global O/E = 1.0596, null mean = 1.0000 sd = 0.0035; p(enrich) = 9.999e-05, p(deplete) = 1
+  O-D: observed global O/E = 0.8039, null mean = 0.9994 sd = 0.0502; p(enrich) = 1, p(deplete) = 9.999e-05
+  D-O: observed global O/E = 0.9422, null mean = 0.9997 sd = 0.0368; p(enrich) = 0.9433, p(deplete) = 0.06079
+  D-D: observed global O/E = 0.8733, null mean = 1.0001 sd = 0.0079; p(enrich) = 1, p(deplete) = 9.999e-05
+  O-D+D-O: observed global O/E = 0.8929, null mean = 0.9996 sd = 0.0294; p(enrich) = 1, p(deplete) = 0.0002
+  (minimum at 10000 runs: 1.0e-04; read as bound, not estimate)
+
+DELTA REGRESSIONS (descriptive, HC1 t-CI):
+  mean_delta_pos ~ SBS4_std: b = -0.00283 (95% CI -0.00418..-0.00148), n = 230
+  mean_delta_window ~ SBS4_std: b = -0.00172 (95% CI -0.00267..-0.00076), n = 230
+
+SECONDARY 1 (pack-years, O-D+D-O, n=158): O/E per 1 SD = 0.9853 (95% CI 0.9125..1.0639) -> INFORMATIVE NULL  [NB2 alpha->0 boundary: Poisson-t limit]
+
+SECONDARY 2 (never vs current, O-D+D-O, n=77): O/E per 1 SD = 0.9589 (95% CI 0.8006..1.1486) -> INCONCLUSIVE  [NB2 alpha->0 boundary: Poisson-t limit]
+
+SECONDARY 3 (discard covariate, O-D+D-O): O/E per 1 SD = 1.0100 (95% CI 0.9234..1.1046) -> INFORMATIVE NULL  [NB2 alpha->0 boundary: Poisson-t limit]
+
+CONTROLS PASSED: class results stand per pre-registration 18.3/21.4

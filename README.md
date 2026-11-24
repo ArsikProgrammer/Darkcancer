@@ -72,6 +72,23 @@ How to download the data: see `download_tar.py` (AlphaFold archive),
 7. **Analysis discipline.** The plan with rules and bounds was fixed before
    the runs (`ANALYSIS_PLAN.md`); the main run for each cohort was executed
    exactly once; all deviations are recorded with dates in the same document.
+8. **Specialized disorder predictors (external review, plan §20).** The
+   pLDDT proxy was replaced by metapredict (a sequence-based disorder
+   predictor) and the full analysis was re-run on the new track
+   (`results/confirmatory_disorder_run_20261124.txt`,
+   `results/luad_disorder_run_20261124.txt`); thresholds 0.4/0.6 as
+   sensitivity. IUPred2A cross-check on a stratified subset
+   (`results/iupred_crosscheck_20261124.txt`).
+9. **Mutation-induced disorder transitions (external review, plan §21).**
+   Each validated missense mutation is scored on the WT and mutant protein
+   sequences and classified by the disorder state of the mutated position
+   before -> after: **O-O, O-D, D-O, D-D**. Per-class O/E against a
+   context-preserving transition background (proteins identical to their
+   UniProt sequence), NB2-t models with the same controls and equivalence
+   bounds; silent mutations as a built-in negative control (delta = 0 exactly).
+   Runs: `results/disorder_transitions_run_20261124.txt`,
+   `results/disorder_transitions_luad_run_20261124.txt` (+ t0.4/t0.6
+   sensitivity).
 
 ## Results
 
@@ -109,6 +126,23 @@ the confidence intervals narrow plausible effects to a few percent per SD — on
 the scale of the **measured** signature (due to predictor noise the true
 effect could be larger than the measured one, see limitations).
 
+**Disorder-predictor re-analysis (external review).** With metapredict in
+place of the AlphaFold proxy the conclusion is unchanged: O/E = 0.9958 per SD
+(0.9751–1.0170) in SCLC and 0.9952 (0.9744–1.0164) in LUAD — informative
+nulls; all controls pass.
+
+**Disorder transitions (external review).** Of 29 582 SCLC and 38 837 LUAD
+validated missense mutations, 1.1–3.0% change the local disorder state
+(O-D or D-O). No class tracks the smoke signature: O-D shows a
+non-significant negative tendency in both cohorts (SCLC 0.909, 0.795–1.038;
+LUAD 0.945, 0.824–1.083 — inconclusive by the equivalence rules), the other
+classes are informative nulls. The per-tumour mean disorder change is
+descriptively negative with SBS4 in LUAD (b = −0.0028 per SD, CI excludes 0)
+but tiny and not pre-registered as an inferential claim. The global
+depletion observed with the pLDDT track decomposes into fewer D-D and more
+O-O transitions than the context-preserving background expects (both
+p ≤ 1e-4), with O-D also depleted.
+
 ## Limitations
 
 - **Absolute O/E values cannot be trusted.** The expectation model shows a
@@ -123,7 +157,11 @@ effect could be larger than the measured one, see limitations).
 - The smoke signature and the outcome are computed from the same mutations
   (not an issue for pack-years).
 - "Softness" is an AlphaFold prediction (pLDDT < 50), not an experiment and
-  not a strict definition of disorder.
+  not a strict definition of disorder. Per external review the analysis was
+  repeated with metapredict (a specialized sequence-based predictor; plan
+  §20–21) with the same result; the mutant-side cross-check with a second
+  predictor (IUPred2A) requires its standalone distribution and is reported
+  for WT states only (82% concordance at mutated positions, Spearman 0.77).
 - Exact exome capture territories are unknown; the background is computed over
   the protein-coding space.
 - Conclusions concern variation within a single cancer type; the causal effect
@@ -148,6 +186,20 @@ python src/refit_signatures.py --opportunity data/processed/opportunity_96.csv .
 python src/annotate_mutations_darkness.py --mapping ... --darkness ...
 python src/run_confirmatory.py -- ...   # SCLC (single run)
 python src/run_luad.py -- ...           # LUAD (single run)
+```
+
+Disorder-predictor analyses (plan §20–21):
+
+```
+python src/build_metapredict_disorder.py --threshold 0.5 --output data/processed/disorder_proteome_metapredict_t0.5.csv
+python src/build_background.py --darkness data/processed/disorder_proteome_metapredict_t0.5.csv --output data/processed/background_metapredict_t0.5.csv
+python src/annotate_disorder_transitions.py --mutations ... --mapping ... --export-subs data/processed/_subs_<cohort>.csv
+python src/score_disorder_effects.py --substitutions data/processed/_subs_all.csv --output data/processed/disorder_substitution_scores.csv
+python src/build_transition_background.py --threshold 0.5 --output data/processed/transition_background_metapredict_t0.5.csv
+python src/annotate_disorder_transitions.py --mutations ... --mapping ... --scores data/processed/disorder_substitution_scores.csv --threshold 0.5 --output data/processed/disorder_transitions_t0.5_<cohort>.csv
+python src/run_disorder_transitions.py -- ...        # SCLC (single run)
+python src/run_disorder_transitions_luad.py -- ...   # LUAD (single run)
+python src/crosscheck_iupred.py --mutations ... --mode rest --n 300
 ```
 
 Exact arguments are in the module docstrings; the final run commands are also
