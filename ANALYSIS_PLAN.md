@@ -467,3 +467,34 @@ One run per cohort and per analysis, one dated output file each, with git
 commit and SHA-256 of all inputs. Rehearsals use the shuffled-predictor flag
 and are labelled. Any post-unblinding change is a dated deviation (18.4); the
 first result of each run is preserved.
+
+---
+
+## 22. Recovery and rebuild log (2026-11-24)
+
+The working environment and its `data/` tree were restored from public sources
+(Zenodo record 24288109, cBioPortal datahub/API, UCSC, GENCODE, AlphaFold DB,
+UniProt, COSMIC). Record of what was and was not reproduced byte-for-byte:
+
+- **Byte-identical (SHA-256 verified against the recorded run inputs):**
+  `luad_smoking_data_clinical_patient.txt`, `tumor_signature_activities_refit_dedup.csv`,
+  `luad_signature_activities.csv` — the signature chain (raw mutations ->
+  context -> counts -> refit with seed 42) is exactly reproducible.
+- **Not byte-identical (run inputs rebuilt with the public code):** the
+  `*_mapping.csv`, `annotated_*.csv` and `background_pLDDT50.csv` files differ
+  from the recorded hashes. Functionally the rebuild is close: mapping row
+  counts match exactly (34583/8078/5190/66770), George validated rows 29927
+  vs 29936 disclosed (0.03%), SCLC/LUAD annotated mutation counts within
+  1.6%/4.7% of the run of record. Likely causes: UniProt sequence/mapping
+  updates between 2026-10-28 and the rebuild, and code differences from the
+  lost development history (commits 45c7c25 / 7f2605c7 are not in the public
+  repository). The runs of record (sections 18-19) stand unchanged; nothing in
+  this rebuild replaces them.
+- **Bug found and fixed during recovery (2026-11-24, commit abfd734):**
+  `map_mutations_to_residues.py` parsed `HGVSp_Short` without the `p.`
+  prefix (`p.R175H`) used by cBioPortal MAFs, so any MAF lacking a `Codons`
+  column (e.g. the Firehose `luad_tcga` MAF) validated zero rows. The fix
+  accepts both notations (`^(?:p\.)?([A-Z*])(\d+)`). This is a reproduction
+  bug fix; it does not alter any recorded result.
+- The section 20-21 analyses run on the rebuilt pipeline (internally
+  consistent inputs, same code path as sections 18-19).
