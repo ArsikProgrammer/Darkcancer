@@ -103,7 +103,7 @@ def main():
     parser.add_argument("--scores", default=None,
                         help="disorder_substitution_scores.csv (score_disorder_effects output)")
     parser.add_argument("--threshold", type=float, default=0.5)
-    parser.add_argument("--output", required=True)
+    parser.add_argument("--output", default=None)
     args = parser.parse_args()
 
     mut = pd.read_csv(args.mutations, low_memory=False)
@@ -121,6 +121,8 @@ def main():
 
     if not args.scores:
         raise SystemExit("either --export-subs or --scores is required")
+    if not args.output:
+        raise SystemExit("--output is required with --scores")
 
     scores = pd.read_csv(args.scores, low_memory=False)
     scores = scores.drop_duplicates(["uniprot_accession", "uniprot_pos", "alt_aa"])
