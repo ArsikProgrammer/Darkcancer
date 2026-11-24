@@ -37,6 +37,8 @@ SILENT = "Silent"
 def join_validated(mut, mapping_paths):
     """Validate mutations via the mapping and add uniprot_accession/uniprot_pos/uniprot_aa."""
     mp = load_mapping(mapping_paths)
+    if "Tumor_Sample_Barcode" in mp.columns:
+        mp["Tumor_Sample_Barcode"] = mp["Tumor_Sample_Barcode"].astype(str)
     extra = [c for c in ["uniprot_accession", "uniprot_aa"] if c in mp.columns]
     key = ["Hugo_Symbol", "Protein_position"]
     if "Tumor_Sample_Barcode" in mp.columns and \
