@@ -140,8 +140,18 @@ def main():
     # silent rows: sequence unchanged -> zero deltas, class from WT state only
     if len(sil) > 0:
         wt_cache = load_wt_scores()
-        sil["wt_score"] = [float(wt_cache[a][int(p) - 1])
+
+        def _wt(acc, pos):
+            arr = wt_cache.get(acc)
+            p = int(pos) - 1
+            return float(arr[p]) if arr is not None and 0 <= p < len(arr) else np.nan
+
+        sil["wt_score"] = [_wt(a, p)
                            for a, p in zip(sil["uniprot_accession"], sil["uniprot_pos"])]
+        n_unscored = int(sil["wt_score"].isna().sum())
+        sil = sil[sil["wt_score"].notna()].copy()
+        if n_unscored:
+            print(f"Silent rows without WT score dropped: {n_unscored}")
         sil["mut_score"] = sil["wt_score"]
         sil["delta_pos"] = 0.0
         sil["delta_window10"] = 0.0
