@@ -4,4 +4,6 @@ scipy==1.17.1
 statsmodels==0.15.0
 requests==2.34.2
 metapredict==2.65.1
+matplotlib==3.11.2
+python-docx==1.2.0
 pytest

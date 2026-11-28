@@ -1,9 +1,14 @@
 # Dark Proteome and the Mutational Footprint of Tobacco Smoke
 
+[![tests](https://github.com/ArsikProgrammer/Darkcancer/actions/workflows/tests.yml/badge.svg)](https://github.com/ArsikProgrammer/Darkcancer/actions/workflows/tests.yml)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24288109.svg)](https://doi.org/10.5281/zenodo.24288109)
+
 A research project on open data: I test whether the mutational signature of
 tobacco smoke in the tumour genome is linked to where mutations land — in
 "soft" (intrinsically disordered, without a stable fold) protein regions — or
 not.
+
+Preprint and archived record: [10.5281/zenodo.24288109](https://doi.org/10.5281/zenodo.24288109).
 
 ## Idea and hypothesis
 
@@ -203,11 +208,11 @@ python src/crosscheck_iupred.py --mutations ... --mode rest --n 300
 ```
 
 Exact arguments are in the module docstrings; the final run commands are also
-duplicated in `ANALYSIS_PLAN.md`. Tests (`tests/`): 9 tests (context,
-statistics, O/E logic, position parsing) run everywhere, including CI; 2 more
-— mapping validation at the known hotspots TP53 R175H and KRAS G12C — run
-locally with the `data/` directory only and are automatically skipped on a
-clean clone (11 in total locally).
+duplicated in `ANALYSIS_PLAN.md`. Tests (`tests/`): 16 tests (context,
+statistics, O/E logic, position parsing, disorder-transition logic) run
+everywhere, including CI; 2 more — mapping validation at the known hotspots
+TP53 R175H and KRAS G12C — run locally with the `data/` directory only and are
+automatically skipped on a clean clone (18 in total locally).
 
 ## Repository structure
 

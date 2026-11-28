@@ -18,6 +18,12 @@ untitled-project/
 __pycache__/
 *.pyc
 .venv/
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+dist/
 
 # OS
 .DS_Store
