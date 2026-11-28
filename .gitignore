@@ -8,6 +8,9 @@ results/*.csv
 *.pkl
 *.fasta
 
+# Local scratch
+untitled-project/
+
 # IDE
 .idea/
 

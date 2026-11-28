@@ -1,5 +1,5 @@
 === CONFIRMATORY RUN (disorder transitions) ===
-git commit: d72c163b88546ad8550e0746c6b9b92eef1814e5
+git commit: 458893fb88546ad8550e0746c6b9b92eef1814e5
 seed: 20261124, permutations: 10000
 
 -- input checksums (SHA-256) --

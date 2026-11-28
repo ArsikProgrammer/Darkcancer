@@ -1,5 +1,5 @@
 === CONFIRMATORY (LUAD dose-response) RUN ===
-git commit: 492ea92d69a9e54b8550ee8e454e6bf7149ad7c8
+git commit: 8b23904d69a9e54b8550ee8e454e6bf7149ad7c8
 seed: 20261028, permutations: 10000
 
 -- input checksums (SHA-256) --

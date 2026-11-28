@@ -476,7 +476,7 @@ first result of each run is preserved.
   combining draws on the count scale). All model fits, estimates and verdicts
   were unaffected. The defective outputs are preserved as
   `results/disorder_transitions*_20261124_defective_resampling_v1.txt`; the
-  corrected runs (commit 492ea92) are the files of record. The t0.4/t0.6
+  corrected runs (commit 8b23904) are the files of record. The t0.4/t0.6
   sensitivity runs already used the corrected code.
 
 ---
@@ -501,7 +501,7 @@ UniProt, COSMIC). Record of what was and was not reproduced byte-for-byte:
   lost development history (commits 45c7c25 / 7f2605c7 are not in the public
   repository). The runs of record (sections 18-19) stand unchanged; nothing in
   this rebuild replaces them.
-- **Bug found and fixed during recovery (2026-11-24, commit abfd734):**
+- **Bug found and fixed during recovery (2026-11-24, commit 926fbe5):**
   `map_mutations_to_residues.py` parsed `HGVSp_Short` without the `p.`
   prefix (`p.R175H`) used by cBioPortal MAFs, so any MAF lacking a `Codons`
   column (e.g. the Firehose `luad_tcga` MAF) validated zero rows. The fix
